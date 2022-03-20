@@ -16,7 +16,7 @@ const Search = () => {
         <SearchInput />
       </form>
       {data?.length ? (
-        <UserList users={data}/>
+        <UserList users={data} count={count}/>
       ): (
         <></>
       )
