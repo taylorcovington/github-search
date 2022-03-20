@@ -1,16 +1,16 @@
 import './style.css';
 import { Link } from 'react-router-dom';
 
-export function HomePage() {
+export function User() {
   return (
     <div className="App">
       <main className="App-main">
-        <p style={{color: 'white'}}>
-          Github Search
+        <p>
+          User Page
         </p>
 
-        <Link to="/page2" className="App-link">
-          Next Page
+        <Link to="/" className="App-link">
+          Back to search
         </Link>
       </main>
     </div>
