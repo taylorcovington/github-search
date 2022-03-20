@@ -1,18 +1,9 @@
 import './style.css';
-import { Link } from 'react-router-dom';
+import User from '../../components/users/user';
 
-export function User() {
+export function UserIndex(props) {
+  const {username} = props.match.params
   return (
-    <div >
-      <main >
-        <p>
-          User Page
-        </p>
-
-        <Link to="/" >
-          Back to search
-        </Link>
-      </main>
-    </div>
+    <User username={username}/>
   );
 }

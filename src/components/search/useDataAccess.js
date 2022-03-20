@@ -1,4 +1,33 @@
-export default function useDataAccess({ onAfterGetResults }) {
+import { useEffect } from 'react'
+
+export default function useDataAccess({ 
+  username, 
+  onAfterGetResults, 
+  onAfterGetUser,
+  onAfterGetRepos
+}) {
+
+  const getRepos = (url) => {
+    fetch(url)
+    .then(res => res.json())
+    .then(json => {
+      console.log(json)
+      onAfterGetRepos(json)
+    })
+    .catch(error => console.log("error: ", error))
+  }
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${username}`)
+    .then(res => res.json())
+    .then(json => {
+      console.log(json)
+      onAfterGetUser(json)
+      getRepos(json.repos_url)
+    })
+    .catch(error => console.log("error: ", error))
+   
+  }, [username])
 
   const handleGetSearchData = (value) => {
     fetch(`https://api.github.com/search/users?q=${value}`)
@@ -9,22 +38,12 @@ export default function useDataAccess({ onAfterGetResults }) {
       })
       .catch(error => console.log("error: ", error))
   }
-
-  const getUser = (username) => {
-    fetch(`https://api.github.com/users/${username}`)
-      .then(res => res.json())
-      .then(json => {
-        console.log(json)
-        onAfterGetResults(json)
-      })
-      .catch(error => console.log("error: ", error))
-  }
-
+  
   const onSubmit = (e) => {
     e.preventDefault();
     const { value } = e.target.elements.search
     console.log("submitted: ", value)
     handleGetSearchData(value)
   }
-  return { onSubmit, getUser }
+  return { onSubmit }
 }
