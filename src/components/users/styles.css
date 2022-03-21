@@ -1,6 +1,37 @@
-.userImage {
+.userContainer {
+  display: flex;
+}
+
+.userImageSm {
   height: 40px;
   aspect-ratio: auto 20 / 20;
   width: 40px;
   border-radius: 50%
+}
+
+.userImageLg {
+  height: 15rem;
+  width: 15rem;
+  aspect-ratio: auto 20 / 20;
+  border-radius: 50%
+}
+
+.repoContainer {
+  border: 1px solid #30363d;
+  width: 15rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 4;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px; 
+}
+
+
+@media only screen and (min-width: 768px) {
+  .userContainer {
+    flex-direction: column;
+  }
 }

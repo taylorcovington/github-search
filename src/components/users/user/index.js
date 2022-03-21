@@ -10,14 +10,14 @@ const User = ({ username }) => {
   const { loading } = useDataAccess({ username, onAfterGetUser, onAfterGetRepos })
 
   return (
-    <div style={{display: 'flex'}}>
-    <aside >
+    <div  style={{display: 'flex'}}>
+    <aside style={{margin: '40px', padding: '40px'}}>
       <UserProfile user={ user }/>
-      <Link to="/" >
+      <Link style={{color: '#58a6ff', textDecoration: 'none'}} to="/" >
         Back to search
       </Link>
     </aside>
-    <main>
+    <main style={{margin: '40px', padding: '40px'}}>
      <Repositories repos={repos}/>
     </main>
   </div>

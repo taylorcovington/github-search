@@ -1,9 +1,9 @@
 import React from 'react';
-
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import { HomePage } from './pages/Home';
 import { UserIndex } from './pages/User';
+import './index.css'
 
 const App = () => (
   <Layout >

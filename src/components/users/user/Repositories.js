@@ -1,16 +1,18 @@
-import React from 'react'
+import Button from '../../reusable/button/Button'
+import RepositoryItem from './RepositoryItem'
 
 const Repositories = ({repos}) => {
   return (
     <>
       <h2>Popular Repositories</h2>
-      <ul>
+      <div style={{display: 'flex', flexWrap: 'wrap'}}>
         {repos?.map(repo => (
-          <li>
-            <a style={{color: 'white', textDecoration: "none"}} href={repo.html_url}>{repo.name}</a>
-          </li>
+          <RepositoryItem key={repo.id} repo={repo}/>
         ))}
-      </ul>
+        <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
+          <Button>See more</Button>
+        </div>
+      </div>
     </>
   )
 }
