@@ -6,6 +6,9 @@ import UserList from "../users/UserList"
 
 const Search = () => {
 
+  // I wanted to show a use case of creating custom hooks
+  // This is something we do to manage our state instead of using context or redux
+  // We do use context in other parts of the app, but it's too much for this.
   const { data, count, onAfterGetResults } = useInteractions()
   const { onSubmit } = useDataAccess({ onAfterGetResults });
 

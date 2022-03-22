@@ -7,28 +7,6 @@ export default function useDataAccess({
   onAfterGetRepos
 }) {
 
-  const getRepos = (url) => {
-    fetch(url)
-    .then(res => res.json())
-    .then(json => {
-      console.log(json)
-      onAfterGetRepos(json)
-    })
-    .catch(error => console.log("error: ", error))
-  }
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${username}`)
-    .then(res => res.json())
-    .then(json => {
-      console.log(json)
-      onAfterGetUser(json)
-      getRepos(json.repos_url)
-    })
-    .catch(error => console.log("error: ", error))
-   
-  }, [username])
-
   const handleGetSearchData = (value) => {
     fetch(`https://api.github.com/search/users?q=${value}`)
       .then(res => res.json())

@@ -1,4 +1,4 @@
-import Button from '../../reusable/button/Button'
+// import Button from '../../reusable/button/Button'
 import RepositoryItem from './RepositoryItem'
 
 const Repositories = ({repos}) => {
@@ -9,9 +9,9 @@ const Repositories = ({repos}) => {
         {repos?.map(repo => (
           <RepositoryItem key={repo.id} repo={repo}/>
         ))}
-        <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
+        {/* <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
           <Button>See more</Button>
-        </div>
+        </div> */}
       </div>
     </>
   )
